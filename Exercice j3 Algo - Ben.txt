@@ -1,0 +1,155 @@
+Ex 1 - Chiffre mystère
+
+FONCTIONS_UTILISEES
+VARIABLES
+
+rng EST_DU_TYPE NOMBRE
+x EST_DU_TYPE NOMBRE
+
+DEBUT_ALGORITHME
+
+rng PREND_LA_VALEUR ALGOBOX_ALEA_ENT (1,100)
+AFFICHER "Veuillez rentrer un nombre entre 1 et 100."
+LIRE x
+
+	TANT_QUE (x != rng) FAIRE
+		DEBUT_TANT_QUE
+			SI (x>rng) ALORS
+				DEBUT_SI
+					AFFICHER "Le chiffre est plus petit !"			
+					lire x	
+				FIN_SI
+			SINON
+				DEBUT_SINON
+					SI (x<rng) ALORS
+						DEBUT_SI
+							AFFICHER "Le chiffre est plus grand !"
+							lire x
+						FIN_SI
+					SINON
+						DEBUT_SINON
+							AFFICHER "C'est cassé"
+						FIN_SINON
+				FIN_SINON
+		FIN_TANT_QUE
+		SI (x == rng) ALORS
+			DEBUT_SI
+				AFFICHER* "Bravo !"
+				AFFICHER "Vous avez trouvé le chiffre mystère."
+			FIN_SI
+
+FIN_ALGORITHME
+
+-----------------------------------------------------
+-----------------------------------------------------
+-----------------------------------------------------
+
+EX 2 - Pierre - Feuille - Ciseaux
+
+FONCTIONS_UTILISEES
+VARIABLES
+	rng EST_DU_TYPE NOMBRE
+	x EST_DU_TYPE NOMBRE
+	bot EST_DU_TYPE CHAINE
+	user EST_DU_TYPE CHAINE
+DEBUT_ALGORITHME
+	rng PREND_LA_VALEUR ALGOBOX_ALEA_ENT (1,3)
+	AFFICHER* "Veuillez rentrer un nombre entre 1 et 3."
+	AFFICHER* "1 = Ciseaux"
+	AFFICHER* "2 = Feuille"
+	AFFICHER* "3 = Pierre"
+	LIRE x
+
+	SI (rng == 1) ALORS
+		DEBUT_SI
+			bot PREND_LA_VALEUR "Ciseaux"
+		FIN_SI
+	SI (x == 1) ALORS
+		DEBUT_SI
+			user PREND_LA_VALEUR "Ciseaux"
+		FIN_SI
+		SI (rng == 2) ALORS
+		DEBUT_SI
+			bot PREND_LA_VALEUR "Feuille"
+		FIN_SI
+	SI (x == 2) ALORS
+		DEBUT_SI
+			user PREND_LA_VALEUR "Feuille"
+		FIN_SI
+		SI (rng == 3) ALORS
+		DEBUT_SI
+			bot PREND_LA_VALEUR "Pierre"
+		FIN_SI
+	SI (x == 3) ALORS
+		DEBUT_SI
+			user PREND_LA_VALEUR "Pierre"
+		FIN_SI
+	SI (rng == x) ALORS
+		DEBUT_SI
+			TANT_QUE (rng == x) FAIRE
+				DEBUT_TANT_QUE
+					AFFICHER "L'IA a joué " 
+					AFFICHER bot 
+					AFFICHER ", vous avez joué " 
+					AFFICHER user 
+					AFFICHER* ". C'est un match nul !!"
+					AFFICHER "Veuillez rejouer."
+					rng PREND_LA_VALEUR ALGOBOX_ALEA_ENT (1,3)
+					lire x
+					SI (rng == 1) ALORS
+						DEBUT_SI
+							bot PREND_LA_VALEUR "Ciseaux"
+						FIN_SI
+					SI (x == 1) ALORS
+						DEBUT_SI
+							user PREND_LA_VALEUR "Ciseaux"
+						FIN_SI
+						SI (rng == 2) ALORS
+						DEBUT_SI
+							bot PREND_LA_VALEUR "Feuille"
+						FIN_SI
+					SI (x == 2) ALORS
+						DEBUT_SI
+							user PREND_LA_VALEUR "Feuille"
+						FIN_SI
+						SI (rng == 3) ALORS
+						DEBUT_SI
+							bot PREND_LA_VALEUR "Pierre"
+						FIN_SI
+					SI (x == 3) ALORS
+						DEBUT_SI
+							user PREND_LA_VALEUR "Pierre"
+						FIN_SI
+			FIN_TANT_QUE
+		FIN_SI
+	SI (rng != 1 ET x < rng OU x == 3 ET rng == 1) ALORS
+		DEBUT_SI
+			AFFICHER "L'IA a joué " 
+			AFFICHER bot 
+			AFFICHER ", vous avez joué " 
+			AFFICHER user
+			AFFICHER ". Vous avez gagné !!"
+		FIN_SI
+	SINON
+		DEBUT_SINON
+			SI (rng != 3 ET x > rng OU x == 1 ET rng == 3) ALORS
+				DEBUT_SI
+					AFFICHER "L'IA a joué " 
+					AFFICHER bot 
+					AFFICHER ", vous avez joué " 
+					AFFICHER user 
+					AFFICHER ". Vous avez perdu !!"
+				FIN_SI
+			SINON
+				DEBUT_SINON
+					AFFICHER "C'est cassé"
+				FIN_SINON
+		FIN_SINON
+FIN_ALGORITHME
+
+-----------------------------------------------------
+-----------------------------------------------------
+-----------------------------------------------------
+
+EX 3 - Le jeu des bâtonnets
+
